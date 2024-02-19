@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="icon" type="image/x-icon" href="https://www.logolynx.com/images/logolynx/5a/5a6c3fbfc112097bb95718c57d2b725f.jpeg">
+</head>
+<body>
+
+    <div style="margin-left: 50px; padding: 10%; width: 230px; margin-top: -10%; margin-left: 200px;">
+        <div style="background-color: rgb(255, 255, 255);border-radius: 5%; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); margin-bottom: -10px; height: 170px;" type="button" onclick=''>
+            
+            <h1 style="font-size: x-large;"> <img src="{{ a[3] }}"/> {{ a[1] | safe }} <b style="font-size: small; top: -10%;">℉</b> / {{ a[2] | safe}} <b style="font-size: small; top: -10%; ">℃</b></h1>
+            <h2 style="font-size: large;margin-left: 10px;">  {{ a[0] | safe }}</h2>
+        </div>
+        <div style="background-color: rgb(255, 255, 255);border-radius: 5%; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); margin-bottom: -10px; height: 170px;">
+            <h1 style="font-size: x-large;"> <img src="{{ x[3] }}"/> {{ x[1] | safe }} <b style="font-size: small; top: -10%;">℉</b> / {{ x[2] | safe}} <b style="font-size: small; top: -10%;">℃</b></h1>
+            <h2 style="font-size: large;margin-left: 10px;">  {{ x[0] | safe }}</h2>
+        </div>
+        <div style="background-color: rgb(255, 255, 255);border-radius: 5%; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); margin-bottom: -10px; height: 170px;">
+            <h1 style="font-size: x-large;"> <img src="{{ y[3] }}"/> {{ y[1] | safe }} <b style="font-size: small; top: -10%;">℉</b> / {{ y[2] | safe}} <b style="font-size: small; top: -10%;">℃</b></h1>
+            <h2 style="font-size: large;margin-left: 10px;">  {{ y[0] | safe }}</h2>
+        </div>
+        <div style="background-color: rgb(255, 255, 255);border-radius: 5%; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); margin-bottom: -10px; height: 170px;">
+            <h1 style="font-size: x-large;"> <img src="{{ i[3] }}"/> {{ i[1] | safe }} <b style="font-size: small; top: -10%;">℉</b> / {{ i[2] | safe}} <b style="font-size: small; top: -10%;">℃</b></h1>
+            <h2 style="font-size: large;margin-left: 10px;">  {{ i[0] | safe }}</h2>
+        </div>
+    </div>
+    <div id="main">
+        <h2><b>{{ data[0] | safe }}</b></h2>
+        <p>Currently "<b>{{ extra[3] |  safe }}</b>"</p>
+        <div >
+            <h1> <img src="{{ data[3] }}"/> {{ data[1] | safe }} <b style="font-size: small; top: -10%;">℉</b> / {{ data[2] | safe}} <b style="font-size: small; top: -10%;">℃</b></h1>
+        </div>
+        <div>
+            <h2 style="font-size: medium;">{{ time | safe }}</h2>
+            <p>☁ {{ extra[0] |  safe}}, ☀ {{ extra[1] |  safe}}</p>
+            <p>⬱ {{ extra[2] }}</p>
+        </div>
+        <span>
+            <div style="display: inline-block;">
+            <h3><b>{{ Days[1] | safe }}</b></h3>
+            <h2> {{ futureWeather[4] | safe }}<b style="font-size: small; top: -10%;">℉</b> / {{ futureWeather[5] | safe }}<b style="font-size: small; top: -10%;">℃</b></h2>
+        </div>
+        <p style="display: inline-block;"></p>
+        <p style="display: inline-block;"></p>
+        <div style="display: inline-block;">
+                <h3><b>{{ Days[2] | safe }}</b></h3>
+                <h2> {{ futureWeather[8] | safe }}<b style="font-size: small; top: -10%;">℉</b> / {{ futureWeather[9] | safe }}<b style="font-size: small; top: -10%;">℃</b></h2>
+        </div>
+    </div>
+</body>
+<script>
+    function s(){
+       location.href = "/region/" + document.getElementById('search-input').value
+    } 
+</script>
+<style>
+
+    ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    }
+
+    li {
+    float: left;
+    }
+    .nav-item::after {
+     content: '';
+     display: block;
+     width: 0px;
+     height: 2px;
+     background: #fec400;
+     transition: 0.4s
+ }
+
+    .nav-item:hover::after {
+        width: 100%;
+    }
+
+    .navbar-dark .navbar-nav .active>.nav-link,
+    .navbar-dark .navbar-nav .nav-link.active,
+    .navbar-dark .navbar-nav .nav-link.show,
+    .navbar-dark .navbar-nav .show>.nav-link,
+    .navbar-dark .navbar-nav .nav-link:focus,
+    .navbar-dark .navbar-nav .nav-link:hover {
+        color: #fec400
+    }
+
+
+    li:last-child {
+    border-right: none;
+    }
+
+    li a {
+        font-size: medium;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-radius: 0px, 0px, 10px, 10px;
+    }
+
+
+    .active {
+    background-color: #1a1a1a;
+    }
+   #main{
+        align-content: center;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        text-align: center;
+        height: 59.9%;
+        width: 17%;
+        z-index: 3;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        overflow: hidden;
+        padding-top: 10px;
+        border-radius: 20px;
+        background-color: rgb(255, 255, 255);
+        
+    }
+    body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 300;
+}
+    html,body{
+        overflow: hidden;
+        background-color: rgb(235, 235, 235);
+    }
+    .bg{
+        filter: blur(17px);
+        -webkit-filter: blur(17px);
+        margin: auto;
+        height: 100%;
+        width: 100%;
+    }
+</style>
+<script>
+    function e(){
+        location.href = "{{ url | safe }}"
+    }
+
+</script>
+</html>

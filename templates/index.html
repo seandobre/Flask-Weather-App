@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+    <link rel="icon" type="image/x-icon" href="https://www.logolynx.com/images/logolynx/5a/5a6c3fbfc112097bb95718c57d2b725f.jpeg">
+
+</head>
+<body>
+ 
+    <div>
+        <img src="{{ bg }}" class="bg">
+        <div id="main">
+            <div class="search">
+               <input class="search-input" id="searchID" placeholder="Search😁" style="display: inline;">
+               
+            </div>
+            <span class="caret"></span>
+            <h2><b>{{ data[0] | safe }}</b></h2>
+            <p>Currently "<b>{{ extra[3] |  safe }}</b>"</p>
+            <div >
+                <h1> <img src="{{ data[3] }}"/> {{ data[1] | safe }} <b style="font-size: small; top: -10%;">℉</b> / {{ data[2] | safe}} <b style="font-size: small; top: -10%;">℃</b></h1>
+            </div>
+            <div>
+                <h2 style="font-size: medium;">{{ time | safe }}</h2>
+                <p>💧 {{ extra[0] |  safe}}</p>
+                <p>⛅ {{ extra[1] |  safe}}</p>
+                <p>☁️ {{ extra[2] }}</p>
+            </div>
+            <span>
+                <div style="display: inline-block;">
+                <h3><b>{{ Days[1] | safe }}</b></h3>
+                <h2> {{ futureWeather[4] | safe }}<b style="font-size: small; top: -10%;">℉</b> / {{ futureWeather[5] | safe }}<b style="font-size: small; top: -10%;">℃</b></h2>
+            </div>
+            <p style="display: inline-block;"></p>
+            <p style="display: inline-block;"></p>
+            <div style="display: inline-block;">
+                    <h3><b>{{ Days[2] | safe }}</b></h3>
+                    <h2> {{ futureWeather[8] | safe }}<b style="font-size: small; top: -10%;">℉</b> / {{ futureWeather[9] | safe }}<b style="font-size: small; top: -10%;">℃</b></h2>
+            </div>
+        </span>
+       
+
+    </div>
+    
+    <div>
+        </div>
+    <div id="content">
+        
+        <div id="preview">
+        </div>
+    <div>
+</body>
+<script src="{{url_for('static', filename='index.js')}}"></script>
+</html>
