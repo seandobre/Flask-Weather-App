@@ -80,5 +80,3 @@ def get_user(id):
   
 
    return render_template('index.html',data=[Region.get_text(), currentWeatherF.getText(),currentWeatherC.getText(), currentWeatherIMG['src']], extra=[moreData[0],moreData[1],moreData[2],weatherText], Days=futureDays1, futureWeather=futureDays,time=Time.get_text(),bg=BackgroundFuction)
-if __name__ == "__main__":
-    app.run()
